@@ -49,3 +49,9 @@ inheritsFrom(ClassB, ClassA);
 
 var b = new ClassB();
 b.print();
+
+//updating
+ClassB.prototype.print = function() {
+    ClassA.prototype.print.call(this);
+    console.log(this.surname);
+}
