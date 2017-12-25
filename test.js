@@ -16,7 +16,8 @@ User.prototype.getUserData = function(){
 	
 	return  "Name:-"+this.name +"   "+"Age:"+this.age ;
 }
-
+//doing for inheritence
 function commonUser(){
+	User.call();
 	
 }
