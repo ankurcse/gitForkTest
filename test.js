@@ -37,3 +37,15 @@ a.print();
 var inheritsFrom = function (child, parent) {
     child.prototype = Object.create(parent.prototype);
 };
+
+
+var ClassB = function() {
+    this.name = "class B";
+    this.surname = "I'm the child";
+}
+ 
+inheritsFrom(ClassB, ClassA);
+//Then because ClassB inherited the print function from ClassA, the following code is working:
+
+var b = new ClassB();
+b.print();
