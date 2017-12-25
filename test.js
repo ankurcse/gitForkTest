@@ -21,3 +21,19 @@ function commonUser(){
 	User.call();
 	
 }
+
+var ClassA = function() {
+    this.name = "class A";
+}
+//This “class” can be instantiated using the new keyword:
+var a = new ClassA();
+ClassA.prototype.print = function() {
+    console.log(this.name);
+}
+//And to use it using our object:
+a.print();
+
+//Now let’s add a tool to create “inheritance” between classes. This tool will just have to do one single thing: clone the prototype.
+var inheritsFrom = function (child, parent) {
+    child.prototype = Object.create(parent.prototype);
+};
