@@ -55,3 +55,22 @@ ClassB.prototype.print = function() {
     ClassA.prototype.print.call(this);
     console.log(this.surname);
 }
+
+// Module design pattern 
+var Module = (function () {
+
+  var privateMethod = function () {};
+  
+  return {
+    publicMethodOne: function () {
+      // I can call `privateMethod()` you know...
+    },
+    publicMethodTwo: function () {
+
+    },
+    publicMethodThree: function () {
+
+    }
+  };
+
+})();
