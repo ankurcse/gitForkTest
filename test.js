@@ -56,6 +56,27 @@ ClassB.prototype.print = function() {
     console.log(this.surname);
 }
 
+//The trick here is to call ClassA.prototype to get the base print function. Then thanks to the call function we can call the base function on the current object (this).
+//Creating ClassC is now obvious:
+var ClassC = function () {
+    this.name = "class C";
+    this.surname = "I'm the grandchild";
+}
+ 
+inheritsFrom(ClassC, ClassB);
+ 
+ClassC.prototype.foo = function() {
+    // Do some funky stuff here...
+}
+ 
+ClassC.prototype.print = function () {
+    ClassB.prototype.print.call(this);
+    console.log("Sounds like this is working!");
+}
+ 
+var c = new ClassC();
+c.print();
+
 // Module design pattern 
 var Module = (function () {
 
